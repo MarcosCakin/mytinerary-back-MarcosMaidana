@@ -32,9 +32,9 @@ const controller = {
             })
         }
     },
+    
     getCityById: async (req, res) => {
         try {
-            // console.log(req.params)
             const oneCity = await City.findById(req.params.id)
 
             if(oneCity) {
@@ -43,12 +43,10 @@ const controller = {
                     city: oneCity
                 })
             }
-
             return res.status(404).json({
                 success: false,
                 message: 'No se pudo encontrar el evento'
             })
-
         } catch (error) {
             console.log(error)
             return res.status(500).json({
