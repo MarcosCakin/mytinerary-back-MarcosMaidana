@@ -70,7 +70,37 @@ const controller = {
                 message:"error al crear la city"
             })
         }
-    }
+    },
+
+    updateCity: async (req, res) => {
+        try {
+            await City.updateOne({_id: req.params.id}, req.body)
+            return res.status(200).json({
+                success:true,
+                message:'El evento se actualizo con exito'
+            })
+        } catch (error) {
+            return res.status(500).json({
+                succes:false, 
+                message:"Error al actualizar la city"
+            })
+        }
+    },
+
+    deleteCity: async (req, res) => {
+        try {
+            await City.deleteOne({_id: req.params.id}, )
+            return res.status(200).json({
+                success:true,
+                message:'El evento se elimino con exito'
+            })
+        } catch (error) {
+            return res.status(500).json({
+                succes:false, 
+                message:"Error al borrar la city"
+            })
+        }
+    }    
 };
 
 export default controller;
