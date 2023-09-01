@@ -96,7 +96,7 @@ const controller = {
             })
         } catch (error) {
             return res.status(500).json({
-                succes:false, 
+                success:false, 
                 message:"Error al borrar la city"
             })
         }

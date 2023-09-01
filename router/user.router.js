@@ -4,8 +4,12 @@ import userController from '../controllers/user.controller.js';
 
 const router = express.Router();
 
-router.get('/', userController.getUsers);
+const { getUsers, createUser, deleteUser } = userController;
 
-router.post('/', userController.createUser);
+router.get('/', getUsers);
+
+router.post('/', createUser);
+
+router.delete('/:id', deleteUser);
 
 export default router;
