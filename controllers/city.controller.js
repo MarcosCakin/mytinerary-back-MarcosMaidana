@@ -37,6 +37,8 @@ const controller = {
     getCityById: async (req, res) => {
         try {
             const oneCity = await City.findById(req.params.id)
+            .populate('itinerary', 'name image price duration likes hashtags')
+            .populate('user', 'name image');
 
             if(oneCity) {
                 return res.status(200).json({
