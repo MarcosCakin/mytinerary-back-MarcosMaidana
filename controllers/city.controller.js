@@ -9,9 +9,10 @@ const controller = {
             queries.city = new RegExp(`^${req.query.city}`, 'i')
         }
 
-
         try {
-            const cities = await City.find(queries).populate('user');
+            const cities = await City.find(queries)
+            .populate('itinerary', 'name image price duration likes hashtags')
+            .populate('user', 'name image');
 
             if (cities.length > 0){
                 return res.status(200).json({

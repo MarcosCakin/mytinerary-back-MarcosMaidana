@@ -2,10 +2,13 @@ import Itinerary from '../models/Itinerary.js'
 
 const controller = {
     getItineraries: async (req, res) => {
+
         let queries = {}
+
         if(req.query.itinerary) {
             queries.itinerary = new RegExp(`^${req.query.itinerary}`, 'i')
         }
+
         try {
             const itineraries = await Itinerary.find(queries);
             if (itineraries.length > 0){
