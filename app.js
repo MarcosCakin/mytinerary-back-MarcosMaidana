@@ -14,6 +14,15 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'));
 app.use(cors());    
-app.use('/api', indexRouter)
+
+
+app.use((req, res, next) => {
+    console.log('Se ejecuto el middleware que hice')
+    
+    // res.status(200).send('Middleware a nivel de aplicacion')
+    
+    next()
+});
+app.use('/api', indexRouter);
 
 app.listen(PORT, () => console.log('Server running on port: ' + PORT));
