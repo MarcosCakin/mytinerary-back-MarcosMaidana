@@ -8,7 +8,7 @@ const schema = new Schema({
     password: {type: String, required:true},
     photo : {type: String},
     online: {type: Boolean, default: false},
-    verified: {type: Boolean, default: true}, /* para la verificacion por email. true = ya esta verificado, en teoria*/ 
+    verified: {type: Boolean, default: true},
     verified_code: {type: String}
 }, {
     timestamps:true
