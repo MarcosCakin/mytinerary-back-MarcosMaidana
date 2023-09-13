@@ -64,16 +64,11 @@ const controller = {
             })
         }
     },
-
     googleSignin: async (req,res,next) => {
-
         const { token_id } = req.body;
-
         try {
             const {name, email, photo} = await verify(token_id);
-
             let user = await User.findOne({email}, );
-
             if(!user) {
                 const data = {
                     name,
@@ -85,6 +80,7 @@ const controller = {
                 }
                 user = await User.create(data)
             }
+
             user.online=true;
             await user.save()
 
@@ -98,7 +94,6 @@ const controller = {
                 process.env.SECRET,
                 { expiresIn: '10h'}
             )
-            
             res.status(200).json({
                 success: true,
                 message: 'Google user correctly logged',
@@ -111,7 +106,6 @@ const controller = {
                     }
                 }
             })
-
         } catch (error) {
             res.status(500).json({
                 success: false,
@@ -119,7 +113,6 @@ const controller = {
             })
         }
     },
-
     signout: async (req,res,next) => {
         try {
             const user = await User.findOneAndUpdate(
