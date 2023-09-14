@@ -6,7 +6,7 @@ export const acountExistsSignup = async (req,res,next) => {
     if (user) {
         return res.status(400).json({
             success:false,
-            message:'El usuario ya esta registrado'
+            message:'User is already registed'
         })
     }
 

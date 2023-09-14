@@ -1,6 +1,6 @@
-import crypto from 'crypto'
-import bcryptjs from 'bcryptjs'
-import jwt from 'jsonwebtoken'
+import crypto from 'crypto';
+import bcryptjs from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 import { verify } from '../helpers/google-verify.js';
 
@@ -12,7 +12,7 @@ const controller = {
 
             const user = await User.create(req.body)
             return res.status(201).json({
-                success:true,
+                success: true,
                 message: 'Usuario registrado'
         })
             
@@ -68,7 +68,7 @@ const controller = {
         const { token_id } = req.body;
         try {
             const {name, email, photo} = await verify(token_id);
-            let user = await User.findOne({email}, );
+            let user = await User.findOne({ email });
             if(!user) {
                 const data = {
                     name,
@@ -109,7 +109,7 @@ const controller = {
         } catch (error) {
             res.status(500).json({
                 success: false,
-                message:'error to authenticate user'
+                message:'error authenticating user'
             })
         }
     },
