@@ -138,7 +138,8 @@ const controller = {
                 user: {
                     name: user.name,
                     email: user.email,
-                    photo: user.photo
+                    photo: user.photo,
+                    online: user.online
                 },
             })
         } catch (error) {

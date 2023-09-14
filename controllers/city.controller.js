@@ -22,14 +22,14 @@ const controller = {
             }
             return res.status(404).json({
                 success:false,
-                message:'No se encontraron ciudades'
+                message:'No cities found'
             })
 
         } catch (error) {
             console.log(error)
             return res.status(500).json({
                 success:false, 
-                message:"error al obtener las ciudades"
+                message:"error getting cities"
             })
         }
     },
@@ -48,13 +48,13 @@ const controller = {
             }
             return res.status(404).json({
                 success: false,
-                message: 'No se pudo encontrar el evento'
+                message: 'Event could not be found'
             })
         } catch (error) {
             console.log(error)
             return res.status(500).json({
                 success: false,
-                message: 'Error al obtener el evento'
+                message: 'Error getting event'
             })
         }
     },
@@ -70,7 +70,7 @@ const controller = {
             console.log(error)
             return res.status(500).json({
                 succes:false, 
-                message:"error al crear la city"
+                message:"error to create city"
             })
         }
     },
@@ -80,12 +80,12 @@ const controller = {
             await City.updateOne({_id: req.params.id}, req.body)
             return res.status(200).json({
                 success:true,
-                message:'El evento se actualizo con exito'
+                message:'City updated correctly'
             })
         } catch (error) {
             return res.status(500).json({
                 succes:false, 
-                message:"Error al actualizar la city"
+                message:"Error to update city"
             })
         }
     },
@@ -95,12 +95,12 @@ const controller = {
             await City.deleteOne({_id: req.params.id}, )
             return res.status(200).json({
                 success:true,
-                message:'El evento se elimino con exito'
+                message:'The city has been removed correctly'
             })
         } catch (error) {
             return res.status(500).json({
                 success:false, 
-                message:"Error al borrar la city"
+                message:"Error to delete city"
             })
         }
     }    

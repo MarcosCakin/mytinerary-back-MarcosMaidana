@@ -9,7 +9,7 @@ export const isAdmin = async (req, res, next) => {
     }
     return res.status(401).json({
       success: false,
-      message: "Usuario no autorizado para eliminar ciudades",
+      message: "User not allowed to delete or modify cities",
     })
   } catch (error) {
     return res.status(500).json({

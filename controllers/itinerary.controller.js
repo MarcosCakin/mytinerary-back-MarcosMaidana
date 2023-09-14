@@ -19,13 +19,13 @@ const controller = {
             }
             return res.status(404).json({
                 success:false,
-                message:'No se encontraron itinerarios'
+                message:'No itineraries found'
             })
         } catch (error) {
             console.log(error)
             return res.status(500).json({
                 success:false, 
-                message:"error al obtener los itinerarios"
+                message:"error obtaining the itineraries"
             })
         }
     },
@@ -71,7 +71,7 @@ const controller = {
         } catch (error) {
             return res.status(500).json({
                 success:false, 
-                message:"Error al borrar el itinerario"
+                message:"Error to delete itinerary"
             })
         }
     }    

@@ -17,9 +17,6 @@ app.use(cors());
 
 
 app.use((req, res, next) => {
-    console.log('Se ejecuto el middleware que hice')
-    
-    // res.status(200).send('Middleware a nivel de aplicacion')
     
     next()
 });

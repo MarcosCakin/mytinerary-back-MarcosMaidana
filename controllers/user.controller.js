@@ -16,14 +16,14 @@ const controller = {
                 }
                 return res.status(404).json({
                     success:false,
-                    message:'No se encontraron usuarios'
+                    message:'No users found'
                 })
     
             } catch (error) {
                 console.log(error)
                 return res.status(500).json({
                     success:false, 
-                    message:"error al obtener los usuarios"
+                    message:"error getting users"
                 })
         }
     },
@@ -33,14 +33,14 @@ const controller = {
 
             return res.status(200).json({
                 success: true, 
-                message:"Usuario creado con exito"
+                message:"User succesfully created"
             })
 
         } catch (error) {
             console.log(error)
             res.status(500).json({
                 success: false,
-                message: "Error al crear un usuario"
+                message: "Error to create user"
             })
         }
     },
@@ -49,12 +49,12 @@ const controller = {
             await User.deleteOne({_id: req.params.id}, )
             return res.status(200).json({
                 success:true,
-                message:'El usuario se elimino con exito'
+                message:'User succesfully deleted'
             })
         } catch (error) {
             return res.status(500).json({
                 succes:false, 
-                message:"Error al borrar el usuario"
+                message:"Error to delete user"
             })
         }
     }    
