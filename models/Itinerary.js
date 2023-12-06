@@ -9,7 +9,8 @@ const schema = new Schema({
     duration: {type: Number, required: true},
     likes: {type: Number, required: true},
     hashtags : [{type: String, required: true}],
-    comments : [{type: String}]
+    comments: {type: Types.ObjectId, ref:'comments' },
+    activities: {type: Types.ObjectId, ref:'activities' }
 }, {
     timestamps: true
 });
